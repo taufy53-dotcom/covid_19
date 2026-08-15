@@ -1,0 +1,316 @@
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Global COVID-19 Dashboard</title>
+
+    <!-- Chart.js -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+    <!-- CSS -->
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+
+<body>
+
+    <!-- =========================
+         HEADER
+    ========================== -->
+
+    <header class="header">
+
+        <div class="logo">
+            🌍 COVID-19
+        </div>
+
+        <div class="header-title">
+            Global COVID-19 Dashboard
+        </div>
+
+    </header>
+
+
+    <!-- =========================
+         MAIN CONTENT
+    ========================== -->
+
+    <main class="container">
+
+        <!-- INTRODUCTION -->
+
+        <section class="intro">
+
+            <h1>Global COVID-19 Dashboard</h1>
+
+            <p>
+                Explore global COVID-19 statistics, country data,
+                and historical trends.
+            </p>
+
+            <p class="last-updated">
+                Data Date:
+                <span id="data-date">Loading...</span>
+            </p>
+
+        </section>
+
+
+        <!-- =========================
+             STATISTICS CARDS
+        ========================== -->
+
+        <section class="stats-grid">
+
+            <div class="stat-card">
+                <h3>Total Cases</h3>
+                <div class="stat-number" id="total-cases">
+                    Loading...
+                </div>
+            </div>
+
+
+            <div class="stat-card">
+                <h3>Total Deaths</h3>
+                <div class="stat-number" id="total-deaths">
+                    Loading...
+                </div>
+            </div>
+
+
+            <div class="stat-card">
+                <h3>Total Recovered</h3>
+                <div class="stat-number" id="total-recovered">
+                    Loading...
+                </div>
+            </div>
+
+
+            <div class="stat-card">
+                <h3>Active Cases</h3>
+                <div class="stat-number" id="total-active">
+                    Loading...
+                </div>
+            </div>
+
+        </section>
+
+
+        <!-- =========================
+             GLOBAL CASES CHART
+        ========================== -->
+
+        <section class="card">
+
+            <div class="card-header">
+
+                <div>
+                    <h2>Global COVID-19 Cases</h2>
+
+                    <p>
+                        Confirmed cases over time
+                    </p>
+                </div>
+
+            </div>
+
+            <div class="chart-container">
+
+                <canvas id="cases-chart"></canvas>
+
+            </div>
+
+        </section>
+
+
+        <!-- =========================
+             GLOBAL DEATHS CHART
+        ========================== -->
+
+        <section class="card">
+
+            <div class="card-header">
+
+                <div>
+                    <h2>Global COVID-19 Deaths</h2>
+
+                    <p>
+                        Deaths recorded over time
+                    </p>
+                </div>
+
+            </div>
+
+            <div class="chart-container">
+
+                <canvas id="deaths-chart"></canvas>
+
+            </div>
+
+        </section>
+
+
+        <!-- =========================
+             COUNTRY SEARCH
+        ========================== -->
+
+        <section class="card">
+
+            <div class="card-header">
+
+                <div>
+                    <h2>Country Explorer</h2>
+
+                    <p>
+                        Select a country to view its COVID-19 history.
+                    </p>
+                </div>
+
+            </div>
+
+
+            <div class="country-search">
+
+                <select id="country-select">
+
+                    <option value="">
+                        Select a country
+                    </option>
+
+                </select>
+
+                <button id="country-button">
+                    View Country
+                </button>
+
+            </div>
+
+        </section>
+
+
+        <!-- =========================
+             COUNTRY HISTORY
+        ========================== -->
+
+        <section class="card" id="country-section">
+
+            <div class="card-header">
+
+                <div>
+
+                    <h2 id="country-title">
+                        Country History
+                    </h2>
+
+                    <p>
+                        Historical COVID-19 statistics
+                    </p>
+
+                </div>
+
+            </div>
+
+
+            <div class="chart-container">
+
+                <canvas id="country-chart"></canvas>
+
+            </div>
+
+        </section>
+
+
+        <!-- =========================
+             COUNTRY TABLE
+        ========================== -->
+
+        <section class="card">
+
+            <div class="card-header">
+
+                <div>
+
+                    <h2>Country Statistics</h2>
+
+                    <p>
+                        COVID-19 statistics by country
+                    </p>
+
+                </div>
+
+            </div>
+
+
+            <div class="table-container">
+
+                <table>
+
+                    <thead>
+
+                        <tr>
+
+                            <th>Country</th>
+
+                            <th>Confirmed</th>
+
+                            <th>Deaths</th>
+
+                            <th>Recovered</th>
+
+                            <th>Active</th>
+
+                        </tr>
+
+                    </thead>
+
+
+                    <tbody id="country-table">
+
+                        <tr>
+
+                            <td colspan="5">
+                                Loading country data...
+                            </td>
+
+                        </tr>
+
+                    </tbody>
+
+                </table>
+
+            </div>
+
+        </section>
+
+
+    </main>
+
+
+    <!-- =========================
+         FOOTER
+    ========================== -->
+
+    <footer class="footer">
+
+        <p>
+            Global COVID-19 Data Visualization
+        </p>
+
+        <p>
+            Built with Python, Flask, HTML, CSS and JavaScript.
+        </p>
+
+    </footer>
+
+
+    <!-- JavaScript -->
+
+    <script src="{{ url_for('static', filename='script.js') }}"></script>
+
+</body>
+
+</html>
+
